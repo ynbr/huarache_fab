@@ -19,7 +19,7 @@ Hurache Project</b>
 FabLab Kitakagaya
 http://fablabkitakagaya.org/
 
-//
+//<br>
 <b>Intoroduction</b>
 This project is aiming to create a kind of sports sandals, called Huarache, with digital machines and to expand Hurache all over the world.
 
