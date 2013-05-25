@@ -27,7 +27,7 @@ int[] cuty = new int[7000];
 int i = 0 ;
 int xxx = 150;  //coordiantes of text
 
-int ci = 13; //amout of slice
+int ci = 50; //amout of slice
 int cy = 0;  //pixel between lines
 int ccy = 0;
 
@@ -38,19 +38,18 @@ int rx = 0;
 void setup(){
   colorMode(RGB,100);
   size(xx, yy);
-  //size(800, 600);
-  beginRecord(PDF, "test1.pdf");
   background(255,255,255);
   strokeWeight(1);
   
-  /*次はここから、画像を読み込み
-  img = loadImage("sample.png");
+  //次はここから、画像を読み込み
+  img = loadImage("sample3.png");
   image(img, 0, 0);
-  img.filter(BLUR, 6);
-  img.filter(THRESHOLD);
-  */
+  filter(THRESHOLD, 1);
+  //
   
+  beginRecord(PDF, "test1.pdf");
   
+  /*
   noSmooth();  //ギザギザ（二値化）
   fill(0,0,0);
   noStroke(); 
@@ -61,6 +60,7 @@ void setup(){
     vertex(500, 550);
     vertex(450, 130);
    endShape();
+   */
    
    cy = yy / ci;
    println(cy);
@@ -79,7 +79,7 @@ void draw(){
       float curValue = brightness(pixels[y * width + x]);
       // 一つ前(左)ピクセルとの明るさの差(絶対値)を取る
       float value = abs(curValue - prevValue);
-
+// println(value);
       if(value==0){
         }else{
           i++;
@@ -117,10 +117,10 @@ void draw(){
         ccy = cy*2;
         
         //draw outline
-        for(int j=1; j<1280;j=j+ccy){
+        for(int j=1; j<1056;j=j+ccy){
           vertex(cutx[j], cuty[j]);
         }
-        for(int j=1088; j>0; j=j-ccy){
+        for(int j=1056; j>0; j=j-ccy){
           vertex(cutx[j], cuty[j]);
         }
         vertex(cutx[1], cuty[1]);
