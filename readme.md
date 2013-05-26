@@ -15,10 +15,18 @@ readme_hurache_fabrication_project<br>
 3. プロダクトの評価、データの誤差と修正値のデータベースの作成
 4. よりよいわラーチを多くの人へ届ける
 
-
 このプロジェクトはfablab kitakagayaでの活動を主とする。
 <br>FabLab Kitakagaya
 http://fablabkitakagaya.org/
+
+###プロジェクトへの参加
+1. GitHubアカウントの取得（右上のサインインから）
+2. 最新版Processingのインストール [link<http://www.processing.org/download/>]
+3. GitHubプロジェクトページへの参加（右上のForkをクリック）
+4. プロジェクトファイルをローカルフォルダへコピー（ページ上部の"Clone in ***"をクリック）
+5. 交信をアップロード（GitHub appにて）
+
+なお、コードのダウンロード自体は"Clone in ***"のとなりにある"zip"からできます。こちらもご自由にどうぞ。
 
 <br><br>
 ##Hurache Project
