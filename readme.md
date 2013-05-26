@@ -1,4 +1,5 @@
 readme_hurache_fabrication_project
+http://farm4.staticflickr.com/3566/3598893916_d36b0f7f56_z.jpg
 
 <b>ワラーチプロジェクト
 Hurache Project</b>
