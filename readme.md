@@ -1,5 +1,6 @@
 readme_hurache_fabrication_project<br>
 <img src="http://farm4.staticflickr.com/3566/3598893916_d36b0f7f56_z.jpg" />
+<br><a rel ="http://www.flickr.com/photos/scottmark/3598893916/">Huarache Running Sandals | Flickr - Photo Sharing!</a>
 
 <b>ワラーチプロジェクト
 Hurache Project</b>
