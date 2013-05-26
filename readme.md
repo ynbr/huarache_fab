@@ -2,14 +2,13 @@ readme_hurache_fabrication_project<br>
 <img src="http://farm4.staticflickr.com/3566/3598893916_d36b0f7f56_z.jpg" />
 <br><a rel ="http://www.flickr.com/photos/scottmark/3598893916/">Huarache Running Sandals | Flickr - Photo Sharing!</a>
 
-#ワラーチプロジェクト
-#Hurache Project</b>
+##ワラーチプロジェクト Hurache Project</b>
 
-##はじめに
+###はじめに
 
 このプロジェクトはランニング・サンダルと呼ばれるワラーチのデジタルファブリケーションと普及を目的とする。
 
-##プロセス
+###プロセス
 
 1. 足型のスキャンをデジタルデータ化 ← Now!!
 2. デジタルデータからレーザーカッターによる切り出し
@@ -22,10 +21,10 @@ FabLab Kitakagaya
 http://fablabkitakagaya.org/
 
 //<br><br>
-##Intoroduction
+###Intoroduction
 This project is aiming to create a kind of sports sandals, called Huarache, with digital machines and to expand Hurache all over the world.
 
-##Process
+###Process
 1. Digitalizing a foots shape scanned ← Now!!
 2. Cuting out materials by a lazer cutter with a digital data
 3. Setting up a databese for a product evaluation e.g. a margin of error, mending point and so on
