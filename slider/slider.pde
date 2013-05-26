@@ -15,8 +15,8 @@ import controlP5.*;
 ControlP5 cp5;
 int myColor = color(0,0,0);
 
-int sliderValue = 100;
-int sliderValue2 = 1050;
+int amountDivision = 100;
+int bottomLine = 1050;
 int sliderTicks1 = 100;
 int sliderTicks2 = 30;
 Slider abc;
@@ -55,12 +55,12 @@ void setup(){
   rect(0,0,xx,100);
   
   cp5 = new ControlP5(this);
-  cp5.addSlider("sliderValue")
+  cp5.addSlider("amountDivision")
    .setPosition(100,30)
    .setRange(5,100)
   ;
    
-   cp5.addSlider("sliderValue2")
+   cp5.addSlider("bottomLine")
    .setPosition(100,50)
    .setRange(100,1200);
   
@@ -125,7 +125,7 @@ void draw(){
     strokeWeight(1);
     stroke(0,100,100);
     
-    cy = sliderValue;
+    cy = amountDivision;
     rx = cutx[1] - 2 * cy;
     ry = cuty[1] - 2 * cy;
    
@@ -134,13 +134,7 @@ void draw(){
       line(0,ry + i,xx,ry +i);
       line(rx + i,0, rx + i,yy);
     }
-    background(255,255,255);
-    img = loadImage("sample2.png");
-    image(img, 0, 100);
-    filter(THRESHOLD, 1);
-    noStroke();
-    fill(0,0,0);
-    rect(0,0,xx,100);
+
     
     //setting drawing outline
       noFill();
@@ -152,10 +146,10 @@ void draw(){
         ccy = cy * 2;
         
         //draw outline
-        for(int j=1; j<sliderValue2;j=j+ccy){
+        for(int j=1; j<bottomLine;j=j+ccy){
           vertex(cutx[j], cuty[j]);
         }
-        for(int j=sliderValue2; j>0; j=j-ccy){
+        for(int j=bottomLine; j>0; j=j-ccy){
           vertex(cutx[j], cuty[j]);
         }
         vertex(cutx[1], cuty[1]);
@@ -181,3 +175,23 @@ void keyPressed(){
   }
 }
 
+void mouseDragged() {
+    background(255,255,255);
+    img = loadImage("sample2.png");
+    image(img, 0, 100);
+    filter(THRESHOLD, 1);
+    noStroke();
+    fill(0,0,0);
+    rect(0,0,xx,100);
+
+}
+
+void mouseReleased() {
+    background(255,255,255);
+    img = loadImage("sample2.png");
+    image(img, 0, 100);
+    filter(THRESHOLD, 1);
+    noStroke();
+    fill(0,0,0);
+    rect(0,0,xx,100);
+}
