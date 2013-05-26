@@ -27,7 +27,7 @@ int[] cuty = new int[7000];
 int i = 0 ;
 int xxx = 150;  //coordiantes of text
 
-int ci = 50; //amout of slice
+int ci = 10; //amout of slice
 int cy = 0;  //pixel between lines
 int ccy = 0;
 
@@ -117,10 +117,10 @@ void draw(){
         ccy = cy*2;
         
         //draw outline
-        for(int j=1; j<1056;j=j+ccy){
+        for(int j=1; j<1050;j=j+ccy){
           vertex(cutx[j], cuty[j]);
         }
-        for(int j=1056; j>0; j=j-ccy){
+        for(int j=1050; j>0; j=j-ccy){
           vertex(cutx[j], cuty[j]);
         }
         vertex(cutx[1], cuty[1]);
@@ -135,8 +135,14 @@ void draw(){
       */
       
       
-      endRecord();  //Saving file as a PDF
+      
       //exit();
+  }
+}
+
+void keyPressed(){
+  if (key == 's'){  //Key press "s"
+    endRecord();  //Saving file as a PDF
   }
 }
 
