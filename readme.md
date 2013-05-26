@@ -2,7 +2,7 @@ readme_hurache_fabrication_project<br>
 <img src="http://farm4.staticflickr.com/3566/3598893916_d36b0f7f56_z.jpg" />
 <br><a rel ="http://www.flickr.com/photos/scottmark/3598893916/">Huarache Running Sandals | Flickr - Photo Sharing!</a>
 
-##ワラーチプロジェクト Hurache Project</b>
+##ワラーチプロジェクト</b>
 
 ###はじめに
 
@@ -21,6 +21,8 @@ FabLab Kitakagaya
 http://fablabkitakagaya.org/
 
 <br><br>
+##Hurache Project
+
 ###Intoroduction
 This project is aiming to create a kind of sports sandals, called Huarache, with digital machines and to expand Hurache all over the world.
 
