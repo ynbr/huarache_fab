@@ -177,9 +177,7 @@ void keyPressed(){
 
 void mouseDragged() {
     background(255,255,255);
-    img = loadImage("sample2.png");
-    image(img, 0, 100);
-    filter(THRESHOLD, 1);
+
     noStroke();
     fill(0,0,0);
     rect(0,0,xx,100);
