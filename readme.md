@@ -21,7 +21,7 @@ http://fablabkitakagaya.org/
 
 ###プロジェクトへの参加
 1. GitHubアカウントの取得（右上のサインインから）
-2. 最新版Processingのインストール [link<http://www.processing.org/download/>]
+2. 最新版Processingのインストール [link: <http://www.processing.org/download/>]
 3. GitHubプロジェクトページへの参加（右上のForkをクリック）
 4. プロジェクトファイルをローカルフォルダへコピー（ページ上部の"Clone in ***"をクリック）
 5. 交信をアップロード（GitHub appにて）
