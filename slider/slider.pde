@@ -1,15 +1,4 @@
 import processing.pdf.*;
-
-/*
-できてること
-- 右点左点の取得
-- PDFとして出力
-- 点を一つのラインとして出力
-- 切断する数の調整
-
-これからやること
-- 画像から点の取得（今はp5上で描写）
-*/
 import controlP5.*;
 
 ControlP5 cp5;
@@ -45,6 +34,8 @@ int ccy = 0;
 int ry = 0;  // axisline
 int rx = 0;
 
+int rec = 0;  //a switch to export PDF
+int num = 0;  //a number of file
 
 void setup(){
   colorMode(RGB,100);
@@ -72,23 +63,8 @@ void setup(){
   image(img, 0, 100);
   filter(THRESHOLD, 1);
   //
-  
-  
-  /*
-  noSmooth();  //ギザギザ（二値化）
-  fill(0,0,0);
-  noStroke(); 
-  strokeJoin(MITER);
-  beginShape();
-    vertex(150, 100);
-    vertex(100, 680);
-    vertex(500, 550);
-    vertex(450, 130);
-   endShape();
-   */
    
    cy = yy / ci;
-   println(cy);
   
 }
 
@@ -104,23 +80,21 @@ void draw(){
       float curValue = brightness(pixels[y * width + x]);
       // 一つ前(左)ピクセルとの明るさの差(絶対値)を取る
       float value = abs(curValue - prevValue);
-// println(value);
+
       if(value==0){
         }else{
           i++;
           cutx[i] = x;  //点の座標を取得
           cuty[i] = y;  //点の座標を取得
         }
-      
       prevValue = curValue;
     }
   }
   
-  updatePixels();
-  start = 1;
-//  background(255,255,255);  //clear rect
+    updatePixels();
+    start = 1;
+  
   }else{
-    
     //方眼用紙
     strokeWeight(1);
     stroke(0,100,100);
@@ -129,10 +103,11 @@ void draw(){
     rx = cutx[1] - 2 * cy;
     ry = cuty[1] - 2 * cy;
    
-    
     for (int i=0;i<yy;i=i+cy){
       line(0,ry + i,xx,ry +i);
+      line(0,ry - i,xx,ry -i);
       line(rx + i,0, rx + i,yy);
+      line(rx - i,0, rx - i,yy);
     }
 
     
@@ -163,24 +138,41 @@ void draw(){
       xxx = xxx +20;
       */
       
+      if (rec == 1){
+          beginRecord(PDF, "test"+num+".pdf");
+          //setting drawing outline
+          noFill();
+          stroke(255,0,0);
+          strokeWeight(3);
+          strokeJoin(MITER);
+          beginShape();
       
-      
-      //exit();
+          ccy = cy*2;
+        
+          //draw outline
+          for(int j=1; j<bottomLine;j=j+ccy){
+            vertex(cutx[j], cuty[j]);
+          }
+          for(int j=bottomLine; j>0; j=j-ccy){
+            vertex(cutx[j], cuty[j]);
+          }
+          vertex(cutx[1], cuty[1]);
+        
+          endShape();
+          endRecord();
+          rec = 0;
+          num++ ;
+       }
+
   }
 }
 
-void keyPressed(){
-  if (key == 's'){  //Key press "s"
-    endRecord();  //Saving file as a PDF
-  }
-}
 
 void mouseDragged() {
     background(255,255,255);
-
     noStroke();
     fill(0,0,0);
-    rect(0,0,xx,100);
+    rect(0,0,width,100);
 
 }
 
@@ -191,5 +183,12 @@ void mouseReleased() {
     filter(THRESHOLD, 1);
     noStroke();
     fill(0,0,0);
-    rect(0,0,xx,100);
+    rect(0,0,width,100);
+}
+
+void keyPressed(){
+  if (key == 's'){  //Key press "s"
+    rec = 1;
+    //endRecord();  //Saving file as a PDF
+  }
 }

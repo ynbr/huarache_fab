@@ -34,6 +34,8 @@ int ccy = 0;
 int ry = 0;  // axisline
 int rx = 0;
 
+int rec = 0;
+
 
 void setup(){
   colorMode(RGB,100);
@@ -47,7 +49,7 @@ void setup(){
   filter(THRESHOLD, 1);
   //
   
-  beginRecord(PDF, "test1.pdf");
+  //beginRecord(PDF, "test1.pdf");
   
   /*
   noSmooth();  //ギザギザ（二値化）
@@ -99,12 +101,14 @@ void draw(){
     //方眼用紙
     strokeWeight(1);
     stroke(0,100,100);
-    rx = cutx[1] - 2 * cy;
-    ry = cuty[1] - 2 * cy;
+    rx = cutx[1] ;
+    ry = cuty[1] ;
     
     for (int i=0;i<yy;i=i+cy){
       line(0,ry + i,xx,ry +i);
+      line(0,ry - i,xx,ry -i);
       line(rx + i,0, rx + i,yy);
+      line(rx - i,0, rx - i,yy);
     }
     
     //setting drawing outline
@@ -133,7 +137,29 @@ void draw(){
       text(cutx[i]+","+cuty[i], 10, xxx);
       xxx = xxx +20;
       */
+       if (rec==1){
+          beginRecord(PDF, "test.pdf");
+          //setting drawing outline
+          noFill();
+          stroke(255,0,0);
+          strokeWeight(3);
+          strokeJoin(MITER);
+          beginShape();
       
+          ccy = cy*2;
+        
+          //draw outline
+          for(int j=1; j<1050;j=j+ccy){
+              vertex(cutx[j], cuty[j]);
+          }
+          for(int j=1050; j>0; j=j-ccy){
+            vertex(cutx[j], cuty[j]);
+          }
+            vertex(cutx[1], cuty[1]);
+          endShape();
+          endRecord();
+          rec = 0;
+       }
       
       
       //exit();
@@ -142,7 +168,8 @@ void draw(){
 
 void keyPressed(){
   if (key == 's'){  //Key press "s"
-    endRecord();  //Saving file as a PDF
+    rec = 1;
+    //endRecord();  //Saving file as a PDF
   }
 }
 
