@@ -24,6 +24,10 @@ int yy= int(py*0.03937*dpi);
 int start = 0;
 int[] cutx = new int[9000];
 int[] cuty = new int[7000];
+
+int[] mx = new int[9000];
+int[] my = new int[7000];
+
 int i = 0 ;
 int xxx = 150;  //coordiantes of text
 
@@ -36,6 +40,8 @@ int rx = 0;
 
 int rec = 0;  //a switch to export PDF
 int num = 0;  //a number of file
+
+int s = 0;
 
 void setup(){
   colorMode(RGB,100);
@@ -72,7 +78,7 @@ void setup(){
 void draw(){
   if (start == 0){  //一回しか点を取らない
   loadPixels();
-  for (int y = 0; y < height; y++){
+  for (int y = 1; y < height; y++){
     // 行の左端ピクセルの明度を入れておく
     float prevValue = brightness(pixels[y * width + 1]);
     for (int x = 1; x < width; x++){
@@ -130,6 +136,7 @@ void draw(){
         vertex(cutx[1], cuty[1]);
         
       endShape();
+      
       /*write dots coordinates
       textSize(16);
       text(yy, 100, 50);
@@ -157,12 +164,26 @@ void draw(){
             vertex(cutx[j], cuty[j]);
           }
           vertex(cutx[1], cuty[1]);
-        
           endShape();
+          
           endRecord();
           rec = 0;
           num++ ;
        }
+       
+        //min max
+        for(int j=1; j<bottomLine;j=j+ccy){
+            if (cutx[j]==0){
+            }else{
+              s++;
+              mx[s] = cutx[j];
+            }
+        }
+        
+        for (int i = 1; i <30; i++){
+          println(mx[i]);
+        }
+        //
 
   }
 }
